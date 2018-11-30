@@ -29,7 +29,7 @@ namespace Editor_de_Imagens
                 }
             }
 
-            Application.Run(new Form1());
+            Application.Run(new FO_Principal());
         }
     }
 }

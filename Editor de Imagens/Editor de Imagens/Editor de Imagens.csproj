@@ -79,19 +79,19 @@
     <Compile Include="Visao\BarraDeCarregamento.Designer.cs">
       <DependentUpon>BarraDeCarregamento.cs</DependentUpon>
     </Compile>
-    <Compile Include="Visao\Form1.cs">
+    <Compile Include="Visao\FO_Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Visao\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Visao\FO_Principal.Designer.cs">
+      <DependentUpon>FO_Principal.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Visao\BarraDeCarregamento.resx">
       <DependentUpon>BarraDeCarregamento.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Visao\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Visao\FO_Principal.resx">
+      <DependentUpon>FO_Principal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

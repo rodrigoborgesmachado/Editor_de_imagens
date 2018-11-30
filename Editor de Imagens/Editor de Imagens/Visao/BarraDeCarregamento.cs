@@ -14,7 +14,15 @@ namespace Editor_de_Imagens.Visao
     {
         #region Atributos e Propriedades
 
+        /// <summary>
+        /// Total de arquivos
+        /// </summary>
         int total = 0;
+
+        /// <summary>
+        /// Controle 
+        /// </summary>
+        int prosseguindo = 0;
         
         #endregion Atributos e Propriedades
 
@@ -31,10 +39,14 @@ namespace Editor_de_Imagens.Visao
 
         #region Métodos
 
+        /// <summary>
+        /// Método que inicializa a tela
+        /// </summary>
         public void InicializaForm()
         {
             AtualizaLabel();
             pgb_progresso.Maximum = total;
+            Refresh();
         }
 
         /// <summary>
@@ -42,7 +54,8 @@ namespace Editor_de_Imagens.Visao
         /// </summary>
         public void AtualizaLabel()
         {
-            this.lbl_valor.Text = "Total: " + total.ToString();
+            this.lbl_valor.Text = "0" + total.ToString();
+            Refresh();
         }
 
         /// <summary>
@@ -52,6 +65,9 @@ namespace Editor_de_Imagens.Visao
         public void AvancaBarra(int valor)
         {
             pgb_progresso.Increment(valor);
+            if(total >= prosseguindo) prosseguindo++;
+            this.lbl_valor.Text = (prosseguindo).ToString() + "/" + total.ToString();
+            Refresh();
         }
 
         #endregion Métodos
