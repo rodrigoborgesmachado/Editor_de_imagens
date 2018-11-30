@@ -237,7 +237,7 @@ namespace Editor_de_Imagens
                 }
 
                 img.Resize(width, height);
-                img.Write(caminhoSaida + arq.Name.Replace(arq.Extension, width.ToString() + "x" + height.ToString()) + cbx_tipos.SelectedText);
+                img.Write(caminhoSaida + arq.Name.Replace(arq.Extension, width.ToString() + "x" + height.ToString()) + cbx_tipos.SelectedItem.ToString());
 
                 return true;
             }

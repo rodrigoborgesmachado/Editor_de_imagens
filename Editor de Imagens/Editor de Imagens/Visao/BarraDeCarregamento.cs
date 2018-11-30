@@ -20,7 +20,7 @@ namespace Editor_de_Imagens.Visao
         int total = 0;
 
         /// <summary>
-        /// Controle 
+        /// Controle das imagens a ser produzidas
         /// </summary>
         int prosseguindo = 0;
         
