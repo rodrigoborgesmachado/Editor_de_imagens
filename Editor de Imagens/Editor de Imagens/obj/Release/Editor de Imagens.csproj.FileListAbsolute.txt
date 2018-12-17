@@ -1,0 +1,12 @@
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Release\Editor de Imagens.exe.config
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Release\Magick.NET-Q8-x64.Native.dll
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Release\Editor de Imagens.exe
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Release\Editor de Imagens.pdb
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Release\Magick.NET-Q16-AnyCPU.dll
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Release\Magick.NET-Q16-AnyCPU.xml
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Release\Editor_de_Imagens.Visao.BarraDeCarregamento.resources
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Release\Editor_de_Imagens.FO_Principal.resources
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Release\Editor_de_Imagens.Properties.Resources.resources
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Release\Editor de Imagens.csproj.GenerateResource.Cache
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Release\Editor de Imagens.exe
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Release\Editor de Imagens.pdb

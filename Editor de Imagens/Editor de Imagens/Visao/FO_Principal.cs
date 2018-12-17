@@ -17,12 +17,20 @@ namespace Editor_de_Imagens
     {
         #region Atributos e propriedades
 
-        public string caminhoSaida = AppDomain.CurrentDomain.BaseDirectory.ToString() + "OUT\\";
+        public string caminhoSaida;
 
         public int sucesso = 0, erro = 0;
 
         public List<string> lista_errados = new List<string>();
         public List<string> lista_errados_motivo = new List<string>();
+
+        public enum TipoFolder
+        {
+            // Caminho de imput
+            INPUT = 0,
+            // Caminho de output
+            OUTPUT = 1
+        }
 
         #endregion Atributos e propriedades
 
@@ -60,7 +68,17 @@ namespace Editor_de_Imagens
         /// <param name="e"></param>
         private void btn_folder_Click(object sender, EventArgs e)
         {
-            OpenDirectoryFile();
+            OpenDirectoryFile(TipoFolder.INPUT);
+        }
+
+        /// <summary>
+        /// Evento chamado quando se clica no botão para selecionar o diretório da pasta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_folder_out_Click(object sender, EventArgs e)
+        {
+            OpenDirectoryFile(TipoFolder.OUTPUT);
         }
 
         #endregion Eventos
@@ -86,17 +104,25 @@ namespace Editor_de_Imagens
         public void InicializaTela()
         {
             this.cbx_tipos.SelectedIndex = 0;
+            caminhoSaida = AppDomain.CurrentDomain.BaseDirectory.ToString() + "OUT";
+            this.txb_folder_output.Text = caminhoSaida;
         }
 
         /// <summary>
         /// Método que abre diálogo para seleção do caminho das imagens
         /// </summary>
-        public void OpenDirectoryFile()
+        public void OpenDirectoryFile(TipoFolder tipo)
         {
             FolderBrowserDialog dialog = new FolderBrowserDialog();
             if(dialog.ShowDialog() == DialogResult.OK)
             {
-                this.tbx_folder.Text = dialog.SelectedPath.ToString();
+                if (tipo == TipoFolder.INPUT)
+                    this.tbx_folder.Text = dialog.SelectedPath.ToString();
+                else
+                {
+                    this.txb_folder_output.Text = dialog.SelectedPath.ToString();
+                    caminhoSaida = dialog.SelectedPath.ToString();
+                }
             }
         }
 
@@ -173,7 +199,7 @@ namespace Editor_de_Imagens
 
             directory = null;
             directory = new DirectoryInfo(tbx_folder.Text);
-            
+            sucesso = erro = 0;
             foreach (FileInfo arq in directory.GetFiles())
             {
                 if (arq.Extension == ".jpg" || arq.Extension == ".JPG" ||
@@ -211,7 +237,6 @@ namespace Editor_de_Imagens
                 mensagem += "Imagens com erro: " + mens;
 
             MessageBox.Show(mensagem);
-            
         }
 
         /// <summary>
@@ -237,7 +262,7 @@ namespace Editor_de_Imagens
                 }
 
                 img.Resize(width, height);
-                img.Write(caminhoSaida + arq.Name.Replace(arq.Extension, width.ToString() + "x" + height.ToString()) + cbx_tipos.SelectedItem.ToString());
+                img.Write(caminhoSaida + "\\" + arq.Name.Replace(arq.Extension, width.ToString() + "x" + height.ToString()) + cbx_tipos.SelectedItem.ToString());
 
                 return true;
             }

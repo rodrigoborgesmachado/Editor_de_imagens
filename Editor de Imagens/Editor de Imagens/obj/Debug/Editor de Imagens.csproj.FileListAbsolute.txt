@@ -18,8 +18,8 @@ D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\D
 D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Debug\Editor de Imagens.pdb
 D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Debug\Magick.NET-Q16-AnyCPU.dll
 D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Debug\Magick.NET-Q16-AnyCPU.xml
-D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.csprojResolveAssemblyReference.cache
 D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor_de_Imagens.Visao.BarraDeCarregamento.resources
 D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor_de_Imagens.FO_Principal.resources
 D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor_de_Imagens.Properties.Resources.resources
 D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.csproj.GenerateResource.Cache
+D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.csprojResolveAssemblyReference.cache
