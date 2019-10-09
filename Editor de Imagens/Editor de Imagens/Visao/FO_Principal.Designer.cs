@@ -38,6 +38,10 @@
             this.ckb_transparent = new System.Windows.Forms.CheckBox();
             this.btn_trata = new System.Windows.Forms.Button();
             this.pan_top_folder = new System.Windows.Forms.Panel();
+            this.lbl_output = new System.Windows.Forms.Label();
+            this.lbl_input = new System.Windows.Forms.Label();
+            this.txb_folder_output = new System.Windows.Forms.TextBox();
+            this.btn_folder_out = new System.Windows.Forms.Button();
             this.pan_tamanho_tipo = new System.Windows.Forms.Panel();
             this.pan_tipos = new System.Windows.Forms.Panel();
             this.cbx_tipos = new System.Windows.Forms.ComboBox();
@@ -45,10 +49,9 @@
             this.pan_tamanho = new System.Windows.Forms.Panel();
             this.pan_transparent = new System.Windows.Forms.Panel();
             this.pan_botao_tratar = new System.Windows.Forms.Panel();
-            this.btn_folder_out = new System.Windows.Forms.Button();
-            this.txb_folder_output = new System.Windows.Forms.TextBox();
-            this.lbl_input = new System.Windows.Forms.Label();
-            this.lbl_output = new System.Windows.Forms.Label();
+            this.btn_file = new System.Windows.Forms.Button();
+            this.tbx_file_in = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.pan_top_folder.SuspendLayout();
             this.pan_tamanho_tipo.SuspendLayout();
             this.pan_tipos.SuspendLayout();
@@ -59,15 +62,15 @@
             // 
             // tbx_folder
             // 
-            this.tbx_folder.Location = new System.Drawing.Point(55, 10);
+            this.tbx_folder.Location = new System.Drawing.Point(83, 52);
             this.tbx_folder.Name = "tbx_folder";
-            this.tbx_folder.Size = new System.Drawing.Size(191, 20);
+            this.tbx_folder.Size = new System.Drawing.Size(200, 20);
             this.tbx_folder.TabIndex = 1;
             // 
             // btn_folder
             // 
             this.btn_folder.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_folder.Location = new System.Drawing.Point(253, 10);
+            this.btn_folder.Location = new System.Drawing.Point(289, 52);
             this.btn_folder.Name = "btn_folder";
             this.btn_folder.Size = new System.Drawing.Size(46, 20);
             this.btn_folder.TabIndex = 2;
@@ -125,7 +128,7 @@
             this.btn_trata.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btn_trata.Location = new System.Drawing.Point(39, 3);
             this.btn_trata.Name = "btn_trata";
-            this.btn_trata.Size = new System.Drawing.Size(231, 32);
+            this.btn_trata.Size = new System.Drawing.Size(266, 32);
             this.btn_trata.TabIndex = 9;
             this.btn_trata.Text = "Tratar";
             this.btn_trata.UseVisualStyleBackColor = true;
@@ -134,25 +137,64 @@
             // pan_top_folder
             // 
             this.pan_top_folder.Controls.Add(this.lbl_output);
+            this.pan_top_folder.Controls.Add(this.label1);
             this.pan_top_folder.Controls.Add(this.lbl_input);
             this.pan_top_folder.Controls.Add(this.txb_folder_output);
             this.pan_top_folder.Controls.Add(this.btn_folder_out);
+            this.pan_top_folder.Controls.Add(this.tbx_file_in);
+            this.pan_top_folder.Controls.Add(this.btn_file);
             this.pan_top_folder.Controls.Add(this.tbx_folder);
             this.pan_top_folder.Controls.Add(this.btn_folder);
             this.pan_top_folder.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_top_folder.Location = new System.Drawing.Point(0, 0);
             this.pan_top_folder.Name = "pan_top_folder";
-            this.pan_top_folder.Size = new System.Drawing.Size(304, 72);
+            this.pan_top_folder.Size = new System.Drawing.Size(347, 120);
             this.pan_top_folder.TabIndex = 7;
+            // 
+            // lbl_output
+            // 
+            this.lbl_output.AutoSize = true;
+            this.lbl_output.Location = new System.Drawing.Point(10, 81);
+            this.lbl_output.Name = "lbl_output";
+            this.lbl_output.Size = new System.Drawing.Size(42, 13);
+            this.lbl_output.TabIndex = 2;
+            this.lbl_output.Text = "Output:";
+            // 
+            // lbl_input
+            // 
+            this.lbl_input.AutoSize = true;
+            this.lbl_input.Location = new System.Drawing.Point(12, 56);
+            this.lbl_input.Name = "lbl_input";
+            this.lbl_input.Size = new System.Drawing.Size(59, 13);
+            this.lbl_input.TabIndex = 2;
+            this.lbl_input.Text = "Input Path:";
+            // 
+            // txb_folder_output
+            // 
+            this.txb_folder_output.Location = new System.Drawing.Point(83, 78);
+            this.txb_folder_output.Name = "txb_folder_output";
+            this.txb_folder_output.Size = new System.Drawing.Size(200, 20);
+            this.txb_folder_output.TabIndex = 3;
+            // 
+            // btn_folder_out
+            // 
+            this.btn_folder_out.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_folder_out.Location = new System.Drawing.Point(289, 78);
+            this.btn_folder_out.Name = "btn_folder_out";
+            this.btn_folder_out.Size = new System.Drawing.Size(46, 20);
+            this.btn_folder_out.TabIndex = 4;
+            this.btn_folder_out.Text = "Folder";
+            this.btn_folder_out.UseVisualStyleBackColor = true;
+            this.btn_folder_out.Click += new System.EventHandler(this.btn_folder_out_Click);
             // 
             // pan_tamanho_tipo
             // 
             this.pan_tamanho_tipo.Controls.Add(this.pan_tipos);
             this.pan_tamanho_tipo.Controls.Add(this.pan_tamanho);
             this.pan_tamanho_tipo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pan_tamanho_tipo.Location = new System.Drawing.Point(0, 72);
+            this.pan_tamanho_tipo.Location = new System.Drawing.Point(0, 120);
             this.pan_tamanho_tipo.Name = "pan_tamanho_tipo";
-            this.pan_tamanho_tipo.Size = new System.Drawing.Size(304, 64);
+            this.pan_tamanho_tipo.Size = new System.Drawing.Size(347, 64);
             this.pan_tamanho_tipo.TabIndex = 8;
             // 
             // pan_tipos
@@ -160,7 +202,7 @@
             this.pan_tipos.Controls.Add(this.cbx_tipos);
             this.pan_tipos.Controls.Add(this.lbl_tipo);
             this.pan_tipos.Dock = System.Windows.Forms.DockStyle.Right;
-            this.pan_tipos.Location = new System.Drawing.Point(104, 0);
+            this.pan_tipos.Location = new System.Drawing.Point(147, 0);
             this.pan_tipos.Name = "pan_tipos";
             this.pan_tipos.Size = new System.Drawing.Size(200, 64);
             this.pan_tipos.TabIndex = 6;
@@ -205,62 +247,53 @@
             // 
             this.pan_transparent.Controls.Add(this.ckb_transparent);
             this.pan_transparent.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pan_transparent.Location = new System.Drawing.Point(0, 136);
+            this.pan_transparent.Location = new System.Drawing.Point(0, 184);
             this.pan_transparent.Name = "pan_transparent";
-            this.pan_transparent.Size = new System.Drawing.Size(304, 26);
+            this.pan_transparent.Size = new System.Drawing.Size(347, 26);
             this.pan_transparent.TabIndex = 9;
             // 
             // pan_botao_tratar
             // 
             this.pan_botao_tratar.Controls.Add(this.btn_trata);
             this.pan_botao_tratar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pan_botao_tratar.Location = new System.Drawing.Point(0, 162);
+            this.pan_botao_tratar.Location = new System.Drawing.Point(0, 210);
             this.pan_botao_tratar.Name = "pan_botao_tratar";
-            this.pan_botao_tratar.Size = new System.Drawing.Size(304, 38);
+            this.pan_botao_tratar.Size = new System.Drawing.Size(347, 38);
             this.pan_botao_tratar.TabIndex = 10;
             // 
-            // btn_folder_out
+            // btn_file
             // 
-            this.btn_folder_out.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_folder_out.Location = new System.Drawing.Point(253, 36);
-            this.btn_folder_out.Name = "btn_folder_out";
-            this.btn_folder_out.Size = new System.Drawing.Size(46, 20);
-            this.btn_folder_out.TabIndex = 4;
-            this.btn_folder_out.Text = "Folder";
-            this.btn_folder_out.UseVisualStyleBackColor = true;
-            this.btn_folder_out.Click += new System.EventHandler(this.btn_folder_out_Click);
+            this.btn_file.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_file.Location = new System.Drawing.Point(289, 26);
+            this.btn_file.Name = "btn_file";
+            this.btn_file.Size = new System.Drawing.Size(46, 20);
+            this.btn_file.TabIndex = 2;
+            this.btn_file.Text = "Folder";
+            this.btn_file.UseVisualStyleBackColor = true;
+            this.btn_file.Click += new System.EventHandler(this.btn_file_Click);
             // 
-            // txb_folder_output
+            // tbx_file_in
             // 
-            this.txb_folder_output.Location = new System.Drawing.Point(55, 36);
-            this.txb_folder_output.Name = "txb_folder_output";
-            this.txb_folder_output.Size = new System.Drawing.Size(191, 20);
-            this.txb_folder_output.TabIndex = 3;
+            this.tbx_file_in.Location = new System.Drawing.Point(83, 26);
+            this.tbx_file_in.Name = "tbx_file_in";
+            this.tbx_file_in.Size = new System.Drawing.Size(200, 20);
+            this.tbx_file_in.TabIndex = 1;
             // 
-            // lbl_input
+            // label1
             // 
-            this.lbl_input.AutoSize = true;
-            this.lbl_input.Location = new System.Drawing.Point(9, 14);
-            this.lbl_input.Name = "lbl_input";
-            this.lbl_input.Size = new System.Drawing.Size(34, 13);
-            this.lbl_input.TabIndex = 2;
-            this.lbl_input.Text = "Input:";
-            // 
-            // lbl_output
-            // 
-            this.lbl_output.AutoSize = true;
-            this.lbl_output.Location = new System.Drawing.Point(7, 39);
-            this.lbl_output.Name = "lbl_output";
-            this.lbl_output.Size = new System.Drawing.Size(42, 13);
-            this.lbl_output.TabIndex = 2;
-            this.lbl_output.Text = "Output:";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Input File:";
             // 
             // FO_Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(249)))), ((int)(((byte)(238)))));
-            this.ClientSize = new System.Drawing.Size(304, 216);
+            this.ClientSize = new System.Drawing.Size(347, 245);
             this.Controls.Add(this.pan_botao_tratar);
             this.Controls.Add(this.pan_transparent);
             this.Controls.Add(this.pan_tamanho_tipo);
@@ -308,6 +341,9 @@
         private System.Windows.Forms.Label lbl_input;
         private System.Windows.Forms.TextBox txb_folder_output;
         private System.Windows.Forms.Button btn_folder_out;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbx_file_in;
+        private System.Windows.Forms.Button btn_file;
     }
 }
 

@@ -23,3 +23,18 @@ D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\D
 D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor_de_Imagens.Properties.Resources.resources
 D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.csproj.GenerateResource.Cache
 D:\Editor de Imagens\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.csprojResolveAssemblyReference.cache
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.csprojAssemblyReference.cache
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor_de_Imagens.Visao.BarraDeCarregamento.resources
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor_de_Imagens.FO_Principal.resources
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor_de_Imagens.Properties.Resources.resources
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.csproj.GenerateResource.cache
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.csproj.CoreCompileInputs.cache
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.exe
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.pdb
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Debug\Magick.NET-Q8-x64.Native.dll
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Debug\Editor de Imagens.exe.config
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Debug\Editor de Imagens.exe
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Debug\Editor de Imagens.pdb
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Debug\Magick.NET-Q16-AnyCPU.dll
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\bin\Debug\Magick.NET-Q16-AnyCPU.xml
+C:\Users\rodri\OneDrive\Projetos\Editor_de_imagens\Editor de Imagens\Editor de Imagens\obj\Debug\Editor de Imagens.csproj.CopyComplete

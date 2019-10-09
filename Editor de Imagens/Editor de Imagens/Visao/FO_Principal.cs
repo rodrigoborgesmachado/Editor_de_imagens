@@ -72,6 +72,16 @@ namespace Editor_de_Imagens
         }
 
         /// <summary>
+        /// Evento disparado no clique do botão de seleção de arquivo
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_file_Click(object sender, EventArgs e)
+        {
+            OpenFileSelected();
+        }
+
+        /// <summary>
         /// Evento chamado quando se clica no botão para selecionar o diretório da pasta
         /// </summary>
         /// <param name="sender"></param>
@@ -106,6 +116,18 @@ namespace Editor_de_Imagens
             this.cbx_tipos.SelectedIndex = 0;
             caminhoSaida = AppDomain.CurrentDomain.BaseDirectory.ToString() + "OUT";
             this.txb_folder_output.Text = caminhoSaida;
+        }
+
+        /// <summary>
+        /// Método que abre a sel~eção de arquivo
+        /// </summary>
+        public void OpenFileSelected()
+        {
+            OpenFileDialog dialog_f = new OpenFileDialog();
+            dialog_f.Title = "Seleção da imagem para alteração!";
+
+            if (dialog_f.ShowDialog() == DialogResult.OK)
+                this.tbx_file_in.Text = dialog_f.FileName.ToString();
         }
 
         /// <summary>
@@ -155,7 +177,15 @@ namespace Editor_de_Imagens
             try
             {
                 bool retorno = System.IO.Directory.Exists(caminho);
-                if (!retorno) mensagem = "Diretório " + caminho + "não existe";
+                if (!retorno)
+                {
+                    retorno = File.Exists(caminho);
+                    if (!retorno)
+                    {
+                        mensagem = "Diretório " + caminho + "não existe";
+                    }
+                }
+
                 return retorno;
             }
             catch(Exception e)
@@ -172,18 +202,28 @@ namespace Editor_de_Imagens
         {
             string men = "";
 
-            if (!ValidaPath(tbx_folder.Text, out men))
+            if (!ValidaPath(string.IsNullOrEmpty(tbx_folder.Text) ? tbx_file_in.Text : tbx_folder.Text, out men))
             {
                 MessageBox.Show(men,"Atenção");
                 return;
             }
 
-            DirectoryInfo directory = new DirectoryInfo(tbx_folder.Text);
+            List<FileInfo> files = new List<FileInfo>();
+            if (!string.IsNullOrEmpty(tbx_folder.Text))
+            {
+                DirectoryInfo directory = new DirectoryInfo(tbx_folder.Text);
+                files = directory.GetFiles().ToList();
+            }
+            if (!string.IsNullOrEmpty(tbx_file_in.Text))
+            {
+                files.Add(new FileInfo(tbx_file_in.Text));
+            }
+            
             string mensagemErro = "";
 
             this.Hide();
             int total = 0;
-            foreach (FileInfo arq in directory.GetFiles())
+            foreach (FileInfo arq in files)
             {
                 if (arq.Extension == ".jpg" || arq.Extension == ".JPG" || 
                     arq.Extension == ".png" || arq.Extension == ".PNG" ||
@@ -197,10 +237,8 @@ namespace Editor_de_Imagens
             BarraDeCarregamento tela = new BarraDeCarregamento(total);
             tela.Show();
 
-            directory = null;
-            directory = new DirectoryInfo(tbx_folder.Text);
             sucesso = erro = 0;
-            foreach (FileInfo arq in directory.GetFiles())
+            foreach (FileInfo arq in files)
             {
                 if (arq.Extension == ".jpg" || arq.Extension == ".JPG" ||
                     arq.Extension == ".png" || arq.Extension == ".PNG" ||
