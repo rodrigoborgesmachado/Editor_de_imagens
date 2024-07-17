@@ -162,13 +162,13 @@ namespace Editor_de_Imagens
                 return false;
             }
 
-            if(string.IsNullOrEmpty(tbx_height.Text))
+            if(string.IsNullOrEmpty(tbx_height.Text) && !this.ckb_criarImagensPadrao.Checked)
             {
                 mensagem = "Campo de height vazio!";
                 return false;
             }
 
-            if (string.IsNullOrEmpty(tbx_width.Text))
+            if (string.IsNullOrEmpty(tbx_width.Text) && !this.ckb_criarImagensPadrao.Checked)
             {
                 mensagem = "Campo de width vazio!";
                 return false;
@@ -247,19 +247,35 @@ namespace Editor_de_Imagens
                 {
                     tela.AvancaBarra(1);
 
-                    if (TrataImagem(arq, 
-                                    int.Parse(tbx_width.Text), 
-                                    int.Parse(tbx_height.Text), 
-                                    ckb_transparent.Checked, 
-                                    ref mensagemErro))
+                    if (ckb_criarImagensPadrao.Checked)
                     {
-                        sucesso++;
+                        if (TrataImagemPadrao(arq, ref mensagemErro))
+                        {
+                            sucesso++;
+                        }
+                        else
+                        {
+                            erro++;
+                            lista_errados.Add(arq.FullName);
+                            lista_errados_motivo.Add(mensagemErro);
+                        }
                     }
                     else
                     {
-                        erro++;
-                        lista_errados.Add(arq.FullName);
-                        lista_errados_motivo.Add(mensagemErro);
+                        if (TrataImagem(arq,
+                                    int.Parse(tbx_width.Text),
+                                    int.Parse(tbx_height.Text),
+                                    ckb_transparent.Checked,
+                                    ref mensagemErro))
+                        {
+                            sucesso++;
+                        }
+                        else
+                        {
+                            erro++;
+                            lista_errados.Add(arq.FullName);
+                            lista_errados_motivo.Add(mensagemErro);
+                        }
                     }
                 }
             }
@@ -277,6 +293,73 @@ namespace Editor_de_Imagens
             MessageBox.Show(mensagem);
         }
 
+        public bool TrataImagemPadrao(FileInfo arq, ref string mensagemErro)
+        {
+            bool retorno = true;
+
+            retorno &= TrataImagem(arq, 600, 800, false, arq.Name.Split('.')[0] + "-large.png", ref mensagemErro);
+            retorno &= TrataImagem(arq, 600, 800, false, arq.Name.Split('.')[0] + "-large.webp", ref mensagemErro);
+            retorno &= TrataImagem(arq, 200, 270, false, arq.Name.Split('.')[0] + "-medium.png", ref mensagemErro);
+            retorno &= TrataImagem(arq, 200, 270, false, arq.Name.Split('.')[0] + "-medium.webp", ref mensagemErro);
+            retorno &= TrataImagem(arq, false, arq.Name.Split('.')[0] + "-original.png", ref mensagemErro);
+            retorno &= TrataImagem(arq, false, arq.Name.Split('.')[0] + "-original.webp", ref mensagemErro);
+            retorno &= TrataImagem(arq, 53, 74, false, arq.Name.Split('.')[0] + "-small.png", ref mensagemErro);
+            retorno &= TrataImagem(arq, 53, 74, false, arq.Name.Split('.')[0] + "-small.webp", ref mensagemErro);
+
+            return retorno;
+        }
+
+        /// <summary>
+        /// Método que trata a imagem e copia para a pasta de saída
+        /// </summary>
+        /// <param name="arq">Imagem a ser editada</param>
+        /// <param name="saida">nome do arquivo de saída</param>
+        /// <param name="transparent">Identifica se deve deixar a imagem com o fundo transparent ou não</param>
+        /// <returns>True - Sucesso; False - Erro</returns>
+        public bool TrataImagem(FileInfo arq, bool transparent, string saida, ref string mensagemErro)
+        {
+            return TrataImagem(arq, 0, 0, transparent, saida, ref mensagemErro);
+        }
+
+        /// <summary>
+        /// Método que trata a imagem e copia para a pasta de saída
+        /// </summary>
+        /// <param name="arq">Imagem a ser editada</param>
+        /// <param name="width">Define  o Width da imagem de saída</param>
+        /// <param name="height">Define o height da imagem de saída</param>
+        /// <param name="saida">nome do arquivo de saída</param>
+        /// <param name="transparent">Identifica se deve deixar a imagem com o fundo transparent ou não</param>
+        /// <returns>True - Sucesso; False - Erro</returns>
+        public bool TrataImagem(FileInfo arq, int width, int height, bool transparent, string saida, ref string mensagemErro)
+        {
+            mensagemErro = "";
+            try
+            {
+                MagickImage img = new MagickImage(arq);
+
+                if (transparent)
+                {
+                    img.ColorFuzz = new Percentage(10);
+                    // -transparent white
+                    img.Transparent(MagickColors.White);
+                }
+
+                if(width > 0)
+                {
+                    img.Resize(width, height);
+                }
+
+                img.Write(caminhoSaida + "\\" + saida);
+
+                return true;
+            }
+            catch (Exception e)
+            {
+                mensagemErro = "Erro ao tratar a imagem " + arq.FullName + ". Erro " + e.Message;
+                return false;
+            }
+        }
+
         /// <summary>
         /// Método que trata a imagem e copia para a pasta de saída
         /// </summary>
@@ -287,28 +370,7 @@ namespace Editor_de_Imagens
         /// <returns>True - Sucesso; False - Erro</returns>
         public bool TrataImagem(FileInfo arq, int width, int height, bool transparent, ref string mensagemErro)
         {
-            mensagemErro = "";
-            try
-            {
-                ImageMagick.MagickImage img = new ImageMagick.MagickImage(arq);
-
-                if (transparent)
-                {
-                    img.ColorFuzz = new Percentage(10);
-                    // -transparent white
-                    img.Transparent(MagickColors.White);
-                }
-
-                img.Resize(width, height);
-                img.Write(caminhoSaida + "\\" + arq.Name.Replace(arq.Extension, width.ToString() + "x" + height.ToString()) + cbx_tipos.SelectedItem.ToString());
-
-                return true;
-            }
-            catch(Exception e)
-            {
-                mensagemErro = "Erro ao tratar a imagem " + arq.FullName + ". Erro " + e.Message;
-                return false;
-            }
+            return TrataImagem(arq, width, height, transparent, arq.Name.Replace(arq.Extension, width.ToString() + "x" + height.ToString()) + cbx_tipos.SelectedItem.ToString(), ref mensagemErro);
         }
 
         #endregion Métodos 
