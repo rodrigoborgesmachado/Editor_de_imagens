@@ -346,7 +346,7 @@ namespace Editor_de_Imagens
 
                 if(width > 0)
                 {
-                    img.Resize(width, height);
+                    img.Resize((uint)width, (uint)height);
                 }
 
                 img.Write(caminhoSaida + "\\" + saida);
