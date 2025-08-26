@@ -39,9 +39,12 @@
             this.btn_trata = new System.Windows.Forms.Button();
             this.pan_top_folder = new System.Windows.Forms.Panel();
             this.lbl_output = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lbl_input = new System.Windows.Forms.Label();
             this.txb_folder_output = new System.Windows.Forms.TextBox();
             this.btn_folder_out = new System.Windows.Forms.Button();
+            this.tbx_file_in = new System.Windows.Forms.TextBox();
+            this.btn_file = new System.Windows.Forms.Button();
             this.pan_tamanho_tipo = new System.Windows.Forms.Panel();
             this.pan_tipos = new System.Windows.Forms.Panel();
             this.cbx_tipos = new System.Windows.Forms.ComboBox();
@@ -49,9 +52,7 @@
             this.pan_tamanho = new System.Windows.Forms.Panel();
             this.pan_transparent = new System.Windows.Forms.Panel();
             this.pan_botao_tratar = new System.Windows.Forms.Panel();
-            this.btn_file = new System.Windows.Forms.Button();
-            this.tbx_file_in = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.ckb_criarImagensPadrao = new System.Windows.Forms.CheckBox();
             this.pan_top_folder.SuspendLayout();
             this.pan_tamanho_tipo.SuspendLayout();
             this.pan_tipos.SuspendLayout();
@@ -160,6 +161,15 @@
             this.lbl_output.TabIndex = 2;
             this.lbl_output.Text = "Output:";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(53, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Input File:";
+            // 
             // lbl_input
             // 
             this.lbl_input.AutoSize = true;
@@ -186,6 +196,24 @@
             this.btn_folder_out.Text = "Folder";
             this.btn_folder_out.UseVisualStyleBackColor = true;
             this.btn_folder_out.Click += new System.EventHandler(this.btn_folder_out_Click);
+            // 
+            // tbx_file_in
+            // 
+            this.tbx_file_in.Location = new System.Drawing.Point(83, 26);
+            this.tbx_file_in.Name = "tbx_file_in";
+            this.tbx_file_in.Size = new System.Drawing.Size(200, 20);
+            this.tbx_file_in.TabIndex = 1;
+            // 
+            // btn_file
+            // 
+            this.btn_file.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btn_file.Location = new System.Drawing.Point(289, 26);
+            this.btn_file.Name = "btn_file";
+            this.btn_file.Size = new System.Drawing.Size(46, 20);
+            this.btn_file.TabIndex = 2;
+            this.btn_file.Text = "Folder";
+            this.btn_file.UseVisualStyleBackColor = true;
+            this.btn_file.Click += new System.EventHandler(this.btn_file_Click);
             // 
             // pan_tamanho_tipo
             // 
@@ -216,7 +244,8 @@
             ".png",
             ".jpg",
             ".ico",
-            ".jpeg"});
+            ".jpeg",
+            ".webp"});
             this.cbx_tipos.Location = new System.Drawing.Point(90, 5);
             this.cbx_tipos.Name = "cbx_tipos";
             this.cbx_tipos.Size = new System.Drawing.Size(105, 21);
@@ -245,6 +274,7 @@
             // 
             // pan_transparent
             // 
+            this.pan_transparent.Controls.Add(this.ckb_criarImagensPadrao);
             this.pan_transparent.Controls.Add(this.ckb_transparent);
             this.pan_transparent.Dock = System.Windows.Forms.DockStyle.Top;
             this.pan_transparent.Location = new System.Drawing.Point(0, 184);
@@ -261,32 +291,16 @@
             this.pan_botao_tratar.Size = new System.Drawing.Size(347, 38);
             this.pan_botao_tratar.TabIndex = 10;
             // 
-            // btn_file
+            // ckb_criarImagensPadrao
             // 
-            this.btn_file.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btn_file.Location = new System.Drawing.Point(289, 26);
-            this.btn_file.Name = "btn_file";
-            this.btn_file.Size = new System.Drawing.Size(46, 20);
-            this.btn_file.TabIndex = 2;
-            this.btn_file.Text = "Folder";
-            this.btn_file.UseVisualStyleBackColor = true;
-            this.btn_file.Click += new System.EventHandler(this.btn_file_Click);
-            // 
-            // tbx_file_in
-            // 
-            this.tbx_file_in.Location = new System.Drawing.Point(83, 26);
-            this.tbx_file_in.Name = "tbx_file_in";
-            this.tbx_file_in.Size = new System.Drawing.Size(200, 20);
-            this.tbx_file_in.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Input File:";
+            this.ckb_criarImagensPadrao.AutoSize = true;
+            this.ckb_criarImagensPadrao.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ckb_criarImagensPadrao.Location = new System.Drawing.Point(206, 6);
+            this.ckb_criarImagensPadrao.Name = "ckb_criarImagensPadrao";
+            this.ckb_criarImagensPadrao.Size = new System.Drawing.Size(138, 17);
+            this.ckb_criarImagensPadrao.TabIndex = 9;
+            this.ckb_criarImagensPadrao.Text = "Criar padrão de imagens";
+            this.ckb_criarImagensPadrao.UseVisualStyleBackColor = true;
             // 
             // FO_Principal
             // 
@@ -344,6 +358,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbx_file_in;
         private System.Windows.Forms.Button btn_file;
+        private System.Windows.Forms.CheckBox ckb_criarImagensPadrao;
     }
 }
 
